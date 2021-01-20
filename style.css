@@ -1,0 +1,377 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Raleway:wght@100;400;600;700&family=Noto+Sans+TC:wght@100;300;400;500;700&display=swap');
+/* 共用區 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*不累加邊框/內距(外距還是會累加) */
+}
+html,body{
+    overflow-x: hidden;/*從body框架外滑動進入時，不要出現橫捲軸 */
+}
+body{
+    font-family: Arial, Helvetica,'Noto Sans TC','微軟正黑體', 'Microsoft JhengHei', '黑體-繁', 'Heiti TC',sans-serif;
+    color: #444;
+}
+img{
+    display: block;
+    /* max-width: 100%; (最大至圖片寬) */
+    width: 100%;
+}
+header,main,section,footer{
+    float: left;
+    width: 100%;
+}
+header,section{
+    position: relative;
+    height: 100vh;/* vh=自動偵測視窗高度 */
+}
+#gotop{
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: #5f717e;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 5px;
+    z-index: 9999;
+}
+/* 背景顏色 */
+.bg_blue{
+    background-color: #d2dde5;
+}
+.bg_grey{
+    background-color: lightgrey;
+}
+.bg_green{
+    background-color: #dee2de;
+}
+/* 導覽列共用 */
+nav ul{
+    list-style-type: none;
+}
+nav li{
+    display: block;/* 變成區塊*/
+    float: left;/* 元素並排*/
+}
+nav a{
+    display: block;
+    color: #444;
+    text-decoration: none; /* 取消a的預設底線(a預設有底線的文字裝飾) */
+}
+/* 頁首區 */
+header{
+    border: solid 25px white;
+    /* position: relative; */
+    animation: mybg 3s forwards;
+}
+header h1{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    animation: logo 2s;
+}
+header nav{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    z-index: 999;
+}
+header .icon{
+    position: absolute;
+    top: 0;
+    /* right: 20px; */
+    width: 120px;/* (圖片35px+左邊間距各5)*3=120px */
+    opacity: 0;
+    animation: icon 3s 1s forwards;
+}
+.icon li{
+    margin-left: 5px;
+}
+header .menu{
+    font-family: 'Comfortaa', sans-serif;
+    position: absolute;
+    top: 88px;/* 置底對齊logo */
+    /* right: 0; 用動畫指定*/
+    width: 600px;
+    animation: menu 1s 1s both;
+}
+.menu a{
+    width: 100px;
+    height: 35px;
+    line-height: 35px;/* 行高設定與高度一樣即可垂直置中 */
+    text-align: center;/* 文字水平置中 */
+    border: solid 1px transparent;/* 滑鼠滑上去可使按鈕的邊框設1像素灰色不動 */
+}
+/*.menu a:hover,.menu a:focus,.menu a:active{
+    border: solid 1px #666; 按鈕的邊框設1像素灰色 
+    background-color: white; 白背景 
+    opacity: .6; 區塊中的所有內容都會作用 
+}*/
+.name{
+    position: absolute;
+    /* 設定為多少%在網頁縮放時可以在相對位置 */
+    /* top: 45%; 用rwd指定*/
+    /* left: 15%; 用動畫指定*/
+    z-index: 999;
+    animation: name 1s 2s both;
+}
+.name h2{
+    font-family: 'Noto Sans TC';
+    font-weight: 100;/* 字重 */
+    font-size: 2.5rem;/* rem瀏覽器的尺寸,1rem=16像素*/
+    letter-spacing: .3rem;/* 字距 */
+    border-bottom: solid 10px #888;/* 邊框線設定*/
+    margin-bottom: 10px;
+}
+.name h3{
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: .0.3rem;
+}
+/* banner */
+.banner{
+    width: 40%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation: banner 2s;
+}
+/* main共用區 */
+section h2{
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700; /* 字重 */
+    letter-spacing: .2rem; /* 字母的間距 */
+    width: 30%; /* 做為margin區塊置中依據 */
+    margin: 3rem auto; /* m0-auto */
+    text-align: center; /* 在區塊中文字置中 */
+    border-top: solid 5px #444; /* 上邊框做為裝飾線 */
+    padding-top: 1rem; /* 與上邊框之間的間距 */
+}
+section hr{
+    width: 10%;
+    border: solid 5px #888;
+    position: absolute;
+    bottom: 25px;
+    left: 45%; /* 視窗一半為 50% - (w10%/2)  */
+}
+.list_box{
+    width: 90%;
+    max-width: 1440px;/*針對寬螢幕限制最大寬度*/
+    /* height: 60vh; */
+    margin: 0 auto;
+}
+.list_item { /* .list_box figure */
+    float: left; /* 併排 */
+    /* height: 100%; 展開與父元素同高 */
+    width: 30.3333%; /* 100% / 3 = 33.3333% - m3% */
+    margin: 0 1.5%; /* 3% / 2 */
+    box-shadow: 3px 3px 5px #888; /* X Y 模糊 顏色 */
+    border-radius: 0 0 25px 25px; /* 左上 右上 右下 左下 */
+    overflow: hidden;
+}
+/* SERVICE */
+figcaption{
+    font-family: 'Comfortaa',sans-serif; /* google font */
+    font-size: 1.8rem;
+    font-weight: 700; /* 字重 */
+    text-align: center;
+    margin: 4vh 2.5rem 2.5vh;
+    padding: 1vh 0;
+    border-bottom: solid 2px #888;
+}
+#service p{ /* .list_box p */
+    margin: 3vh 2.5rem 5vh;
+    line-height: 1.3rem;
+    /* 多行文本溢出省略 */
+    -webkit-line-clamp: 3; /* 指定行數 */
+    overflow: hidden; /* 區塊溢出:隱藏 */
+    text-overflow: ellipsis; /* 文字溢出:省略號 */
+    display: -webkit-box;/* 彈性佈局容器 */
+    -webkit-box-orient: vertical; /* 區塊佈局方向:垂直 */
+}
+/* NEWS區 */
+.list_box article{
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.news_pt1{
+    background-image:url(images/pt_news1.jpg);
+}
+.news_pt2{
+    background-image:url(images/pt_news2.jpg);
+}
+.news_pt3{
+    background-image:url(images/pt_news3.jpg);
+}
+.news_item{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .4);
+    color: white;
+    padding: 2rem;
+}
+.news_item h3{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.news_item p{
+    /* 單行文本溢出省略 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* ABOUT區 */
+#about{
+    background-image: url(images/pt_about.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+#about h2{
+    font-size: 2.2rem;
+    width: 50%;
+}
+#about>div{ /* 針對第一層div */
+    position: relative;
+    float: right;
+    width: 55%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .7);
+}
+#about>div>div{
+    margin: 0 10%;
+    padding-right: 1rem;
+    height: 70vh;
+    overflow: auto;
+    text-align: justify;
+    line-height: 2rem;
+}
+#about span{
+    color: teal;
+}
+#about hr{
+    width: 20%;
+    left: 40%;/* 一半50% - (20%/2) */
+}
+/* video */
+video{
+    display: block;
+    /* height: 70vh; 用rwd指定*/
+    margin: 0 auto;
+}
+/* contct us */
+form{
+    width: 45%;
+    margin: 0 auto;
+}
+small{
+    display: block;
+    text-align: right;
+}
+#contact label,#contact input,#contact textarea{
+    width: 100%;
+}
+#contact small,#contact label{
+    color: rgb(91, 107, 122);
+}
+#contact input,#contact textarea{
+    background-color: rgb(220, 227, 236);
+    border: inset 1px;
+    font-size: 1rem;
+    padding: 5px;
+    margin: 10px 0 20px;
+}
+/* form button */
+button {
+    position: relative;
+    outline: none;
+    text-decoration: none;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    height: 60px;
+    width: 210px;
+    margin: 0 auto;
+    opacity: 1;
+    background-color: #ffffff;
+    border: 1px solid rgba(65, 77, 98, 0.6);
+  }
+  button span {
+    color: #313742;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+  }
+  button:hover {
+    animation: rotate 0.7s ease-in-out both;
+  }
+  button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    25% {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+    50% {
+      transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+    75% {
+      transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  @keyframes storm {
+    0% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+    25% {
+      transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+    50% {
+      transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+    75% {
+      transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  }
+  
+/* 頁尾區 */
+footer{
+    position: relative;
+    height: 150px;
+}
+footer h1{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+footer .menu{
+    position: absolute;
+    top: 50px;
+    right: 70px;
+}
+footer small{
+    position: absolute;
+    right: 67px;
+    top: 110px;
+}

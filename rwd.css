@@ -1,0 +1,159 @@
+/*小型設備（小型平板電腦和大型手機，767px及以下）*/
+@media only screen and (max-width:767px) {
+    header h1{
+        top: 20px;
+        left: 20px;
+    }
+    @keyframes logo{
+        from{ opacity: 0; left: 0; }
+        to{ opacity: 1; left: 20px; }
+    }
+    header .menu{ /* 階層一致 */
+        width: 100px;
+    }
+    @keyframes menu{ /* 必須完整重寫from/to */
+        from{ opacity: 0; right: -100px;}
+        to{ opacity: 1; right: 20px;}
+    }
+    .menu a{
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        text-align: right;
+    }
+    .menu a:hover,.menu a:focus,.menu a:active{
+        border: none;
+        background-color: transparent;
+        color: teal;
+    }
+    .name{
+        bottom: 10px;
+    }
+    @keyframes name{
+        from{ opacity: 0; left: 0;}
+        to{ opacity: 1; left: 20px;}
+    }
+    .name h2{
+        font-size: 2.2rem;
+    }
+    .banner{
+        width: 45%;
+    }
+    section h2{
+        font-size: 1.7rem;
+        width: 50%;
+    }
+    section hr{
+        width: 25%;
+        left: calc(50% - (25%/2));/*減號前後一定要空格*/
+    }
+    .list_item{
+        float: none;
+        width: 95%;
+        margin: 15% auto;
+        border-radius: 0 25px 25px 0;
+    }
+    #service img{
+        float: left;
+        width: 50%;
+    }
+    figcaption{
+        float: left;
+        width: 40%;
+        margin: 5px 5%;
+        font-size: 1.1rem;
+        
+    }
+    #service p{
+        float: left;
+        width: 40%;
+        margin: 5px 5%;
+    }
+    .list_box article{
+        height: 20vh;
+        margin: 5% 0;
+        border-radius: 0;
+    }
+    .news_item{
+        padding: .8rem;
+    }
+    .news_item h3{
+        font-size: 1.4rem;
+        margin-bottom: .8rem;
+    }
+
+    video{
+        width: 85%;
+    }
+    #video{ /* 不同樣式不能覆蓋，rwd需分開設定 */
+        height: auto;
+        padding-bottom: 100px;
+    }
+}
+/*中型設備（大型平板電腦，768px及以上）*/
+@media only screen and (min-width:768px) {
+    header .menu{ /* 階層一致 */
+        width: 100px;
+    }
+    @keyframes menu{ /* 必須完整重寫from/to */
+        from{ opacity: 0; right: -100px;}
+        to{ opacity: 1; right: 20px;}
+    }
+    .menu a{
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        text-align: right;
+    }
+    .menu a:hover,.menu a:focus,.menu a:active{
+        border: none;
+        background-color: transparent;
+        color: teal;
+    }
+    .name{
+        top: 50%;
+    }
+    .banner{
+        width: 55%;
+    }
+    section h2{
+        width: 50%;
+    }
+    
+    .viedo{
+        width: 85%;
+    }
+    #video{
+        height: auto;
+        padding-bottom: 100px;
+    }
+
+    
+}
+/*大型設備（筆記型電腦/桌機，992px及以上）*/
+@media only screen and (min-width:992px) {
+    header .menu{ /* 階層一致 */
+        width: 600px;
+    }
+    @keyframes menu{ /* 必須完整重寫from/to */
+        from{ opacity: 0; right: -200px;}
+        to{ opacity: 1; right: 0px;}
+    }
+    .menu a{
+        margin-bottom: 0;
+        font-size: 1rem;
+        text-align: right;
+    }
+    .menu a:hover,.menu a:focus,.menu a:active{
+        border: solid 1px #666;
+        background-color: white;
+        opacity: .6;
+        color: teal;
+    }
+    .banner{
+        width: 40%;
+    }
+  
+    video{
+        height: 70vh;
+    }
+    
+}

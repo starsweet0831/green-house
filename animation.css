@@ -1,0 +1,24 @@
+@keyframes name{
+    from{ opacity: 0; left: 0;}
+    to{ opacity: 1; left: 15%;}
+}
+/*直接用rwd指定 @keyframes menu{
+    from{ opacity: 0; right: -200px;}
+    to{ opacity: 1; right: 0;}
+}*/
+@keyframes icon{
+    from{ opacity: 0; right: -150px; }
+    to{ opacity: 1; right: 20px; }
+}
+@keyframes banner{
+    from{ opacity: 0; right: -500px;}
+    to{ opacity: 1; right: 0;}
+}
+@keyframes logo{
+    from{ opacity: 0; left: 0; }
+    to{ opacity: 1; left: 40px; }
+}
+@keyframes mybg{
+    from{ background-color: #c6c7a1; }
+    to{ background-color: #d2dde5; }
+}
